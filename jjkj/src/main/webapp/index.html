@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>电影天堂</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/skybase.css" />
+<link rel="stylesheet" type="text/css" href="css/font.css" />
+<link rel="stylesheet" type="text/css" href="css/font_black.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    var id;
+	//轮播次数
+	var index = 0;
+	function lunbo() {
+		id = setInterval(function(){
+			index++;
+			//获取所有的图片
+			var imgs = $(".lunboimg");
+			var sliderBtns=$(".slider_indicator_btn");
+			//将它们都隐藏
+			for(var i=0;i<imgs.length;i++) {
+				imgs[i].className = "lunboimg hide";
+			}
+			for(var i=0;i<sliderBtns.length;i++) {
+				sliderBtns[i].className = "slider_indicator_btn";
+			}
+			//显示下一张图片
+			var next = index%imgs.length;
+			imgs[next].className = "lunboimg show";
+			sliderBtns[next].className = "slider_indicator_btn active";
+		},2000);
+	}
+	
+	function stoplunbo() {
+		clearInterval(id);
+	}
+	
+	//页面加载后
+	window.onload = function(){
+		//开始轮播
+		lunbo();
+	}
+</script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<header class="hearder">
+	<div class="hearder_cnt">
+		<div class="containter">
+			<div class="hearder_cnt_1">
+				<a href="javascript:;">
+					<img src="images/log.png" lt="东方头条" title="东方头条">
+				</a>
+			</div>
+			<div class="header_cnt_2">
+                <div class="header_cnt_2_t">
+                    <form action="//s.eastday.com/" target="_blank">
+                        <input value="" name="kw" class="search_head" id="search_head" type="text">
+                        <a href="//s.eastday.com/?kw=%E7%AC%AC%E4%BA%8C%E6%9E%B6C919%E4%BB%8A%E8%AF%95%E9%A3%9E" target="_blank">搜索</a>
+                    </form>
+                </div>
+                <div class="login-box">
+    				<div class="no_sign_img">
+        				<img src="images/no_sign_in.png" alt="" class="fr user_nickname">
+    				</div>
+    				<div class="btn_or_nickname ">
+        			   <button type="button" class="open-login">登录</button>
+       						<i></i>
+        				<button type="button" class="open-reg ">注册</button>
+    			   </div>
+				</div>
+            </div>
+		</div>
+	</div>
+</header>
+
+<section>
+<div class="menu">
+		<ul class="nav">
+			<li><a href="index.html">首页</a></li>
+			<li><a href="video.html">国产</a></li>
+			<li><a href="video.html">欧美</a></li>
+			<li><a href="video.html">日韩</a></li>
+			<li><a href="video.html">综艺</a></li>
+		</ul> 
+</div>
+
+
+<div class="video">
+		<div class="video_left floatLeft">
+		<!-- 	<div>
+				<video width="600" height="450" controls>
+					<source src="media/apple.mp4" type="video/mp4">
+					<source src="media/apple.ogg" type="video/ogg">您的浏览器不支持 HTML5 video 标签。
+				</video>
+			</div> -->
+
+			<div class="lunboWrap">
+				<div class="lunbodiv" onmouseover="stoplunbo();" onmouseout="lunbo();">
+					<img src="images/01.jpg" class="lunboimg">
+					<img src="images/02.jpg" class="lunboimg hide"/>
+					<img src="images/03.jpg" class="lunboimg hide"/>
+			   </div>
+
+				<div class="slider_indicator">
+					<i class="slider_indicator_btn active"></i>
+					<i class="slider_indicator_btn"></i>
+					<i class="slider_indicator_btn"></i>
+				</div>
+			</div>
+		</div>
+		<div class="video_right floatLeft">
+			<div class="video_top_containter">
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon fontsize16 textAlignLeft color_c souTitle">搜索榜</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">1</span>&nbsp;<span class="fontsize12">视频xsssssxxxxxxxx</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">2</span>&nbsp;<span class="fontsize12">视频02</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">3</span>&nbsp;<span class="fontsize12">视频03</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">4</span>&nbsp;<span class="fontsize12">视频04</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">5</span>&nbsp;<span class="fontsize12">视频05</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">6</span>&nbsp;<span class="fontsize12">视频06</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">7</span>&nbsp;<span class="fontsize12">视频07</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">8</span>&nbsp;<span class="fontsize12">视频08</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">9</span>&nbsp;<span class="fontsize12">视频09</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">10</span>&nbsp;<span class="fontsize12">视频10</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">11</span>&nbsp;<span class="fontsize12">视频11</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">12</span>&nbsp;<span class="fontsize12">视频12</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">13</span>&nbsp;<span class="fontsize12">视频13</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">14</span>&nbsp;<span class="fontsize12">视频14</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+				<div class="headerTitleWrap">
+					<div class="headerTitle">
+						<div class="headerTitleRow">
+							<div class="leftCon textEllipsis textAlignLeft"><span class="c-index c-index-hot">15</span>&nbsp;<span class="fontsize12">视频15</span></div>
+							<div class="rightCon width50pre fontsize12">17981人气</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="div_top">
+				<div><a href="javascript:;">[本周Top15]</a></div>
+				<div><a href="javascript:;">[本月Top15]</a></div>
+				<div><a href="javascript:;">[人气Top15]</a></div>
+			</div>
+		</div>
+</div>
+<!-- video img start-->
+<div class="area">
+	<div class="title">
+		<span class="label">国产</span>
+		<a href="#" class="more">更多></a>
+	</div>
+	<div class="video_img_div">
+		<ul>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+		</ul>
+	</div>
+<div>
+
+<div class="area">
+	<div class="title">
+		<span class="label">欧美</span>
+		<a href="#" class="more">更多></a>
+	</div>
+	<div class="video_img_div">
+		<ul>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+		</ul>
+	</div>
+<div>
+
+<div class="area">
+	<div class="title">
+		<span class="label">日韩</span>
+		<a href="#" class="more">更多></a>
+	</div>
+	<div class="video_img_div">
+		<ul>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+		</ul>
+	</div>
+<div>
+
+<div class="area">
+	<div class="title">
+		<span class="label">综艺</span>
+		<a href="#" class="more">更多></a>
+	</div>
+	<div class="video_img_div">
+		<ul>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+		</ul>
+	</div>
+<div>
+<!-- video img end-->
+
+</section>
+
+<footer class="footer">
+	<div class="footer_containter">
+		<p>版权所有(C)深圳环富通科技有限公司</p>
+		<p>2017 京ICP证030173号  京公网安备11000002000001号</p>
+	</div>
+</footer>
+
+</body>
+</html>

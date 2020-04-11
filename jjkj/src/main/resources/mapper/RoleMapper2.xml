@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jjkj.spring.jdbc.dao.RoleMapper2">
+    
+	<sql id="roleColumns" >
+		id as id,
+		role_name as roleName,
+		note as note	
+	</sql>
+	<select id="insert" parameterType="com.jjkj.spring.jdbc.bean.Role">
+		insert into t_role (id,role_name,note) values(#{id},#{roleName},#{note})
+	</select>
+	<select id="select" parameterType="String" resultType="com.jjkj.spring.jdbc.bean.Role">
+		select 
+		<include refid="roleColumns"/>
+		from t_role where id=#{id}
+	</select>
+	<update id="update" parameterType="com.jjkj.spring.jdbc.bean.Role">
+		update t_role set role_name=#{roleName},note=#{note} where id=#{id}
+	</update>
+	<delete id="delete" parameterType="String">
+		delete from t_role where id=#{id}
+	</delete>
+	<!-- 
+	<select id="list" parameterType="string">
+		select * from t_role where role_name like concat('%',?,'%')
+	</select> -->
+</mapper>

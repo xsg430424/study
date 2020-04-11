@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jjkj.spring.jdbc.dao.RoleMapper">
+    <cache/>
+    
+    
+    <resultMap id="roleResultMap" type="com.jjkj.spring.jdbc.bean.Role">
+    	<id property="id" column="id" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="roleName" column="role_name" javaType="String" jdbcType="VARCHAR"/>
+    	<result property="note" column="note" javaType="String" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+	<sql id="roleColumns" >
+		id as id,
+		role_name as roleName,
+		note as note	
+	</sql>
+	<select id="insert" parameterType="com.jjkj.spring.jdbc.bean.Role">
+		insert into t_role (id,role_name,note) values(#{id},#{roleName},#{note})
+	</select>
+	<select id="select" parameterType="String" resultType="com.jjkj.spring.jdbc.bean.Role">
+		select 
+		<include refid="roleColumns"/>
+		from t_role where id=#{id}
+	</select>
+	<update id="update" parameterType="com.jjkj.spring.jdbc.bean.Role">
+		update t_role set role_name=#{roleName},note=#{note} where id=#{id}
+	</update>
+	<delete id="delete" parameterType="String">
+		delete from t_role where id=#{id}
+	</delete>
+	 
+	<select id="findRolesByName" parameterType="string" resultMap="roleResultMap">
+		select * from t_role where role_name like concat('%',#{name},'%')
+	</select>
+	
+	<select id="findRolesByNameNote" parameterType="string" resultMap="roleResultMap">
+		<bind name="pattern1" value="'%' + name + '%'"/>
+		<bind name="pattern2" value="'%' + note + '%'"/>
+		select * from t_role where role_name like #{pattern1} and note like #{pattern2}
+	</select>
+	
+	<select id="findRoles" parameterType="com.jjkj.spring.jdbc.bean.Role" resultMap="roleResultMap">
+		select * from t_role 
+		<where>
+		<choose>
+			<when test="id !=null and id != ''">
+				and id=#{id}
+			</when>
+			<when test="roleName !=null and roleName != ''">
+				and role_name like concat('%',#{roleName},'%')
+			</when>
+			<otherwise>
+				and note is not null
+			</otherwise>
+		</choose>
+		</where>
+	</select>
+	
+	<select id="findRolesByRoleNames" resultMap="roleResultMap">
+		select * from t_role where role_name in
+		<foreach item="name" index="index" collection="list" open="(" close=")" separator=",">
+			#{name}
+		</foreach>
+	</select>
+	
+	<select id="countRole" parameterType="com.jjkj.spring.jdbc.bean.CountRole" statementType="CALLABLE">
+		{call count_role(
+			#{roleName,mode=IN,jdbcType=VARCHAR},
+			#{total,mode=OUT,jdbcType=INTEGER},
+			#{execDate,mode=OUT,jdbcType=DATE}
+		)}
+	</select>
+	
+</mapper>

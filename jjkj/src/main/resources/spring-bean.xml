@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd 
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+    
+    <bean id="beanPostProcessor" class="com.jjkj.spring.bean.domain.BeanPostProcessorImpl"/>
+    
+    <bean id="source" class="com.jjkj.spring.bean.domain.Source">
+		<property name="fruit" value="橙汁"/>
+		<property name="sugar" value="少盐"/>
+		<property name="size" value="大杯"/>
+	</bean>
+    
+   	<bean id="juiceMaker" class="com.jjkj.spring.bean.domain.JuiceMaker" init-method="myInit" destroy-method="myDestroy">
+   		<property name="beberageShop" value="贡茶"/>
+   		<property name="source" ref="source"/>
+   	</bean>
+	
+	<bean id="role" class="com.jjkj.spring.bean.domain.Role">
+		<constructor-arg index="0" value="总经理"/>
+		<constructor-arg index="1" value="公司管理者"/>
+	</bean>
+	
+	<bean id="role2" class="com.jjkj.spring.bean.domain.Role">
+		<property name="roleName" value="工程师"/>
+		<property name="note" value="重要人员"/>
+	</bean>
+	
+	<bean id="role3" class="com.jjkj.spring.bean.domain.Role" c:_0="1" c:_1="manager" c:_2="zhangsan">
+	</bean>
+	
+	<bean id="role4" class="com.jjkj.spring.bean.domain.Role" p:id="1" p:roleName="dawei" p:note="john">
+	</bean>
+	
+	<bean id="r1" class="com.jjkj.spring.bean.domain.Role">
+		<property name="id" value="1"/>
+		<property name="roleName" value="role_name_1"/>
+		<property name="note" value="role_note_1"/>
+	</bean>
+	
+	<bean id="r2" class="com.jjkj.spring.bean.domain.Role">
+		<property name="id" value="2"/>
+		<property name="roleName" value="role_name_2"/>
+		<property name="note" value="role_note_2"/>
+	</bean>
+	
+	<bean id="u1" class="com.jjkj.spring.bean.domain.User">
+		<property name="id" value="1"/>
+		<property name="username" value="user_name_1"/>
+		<property name="note" value="user_note_1"/>
+	</bean>
+	
+	<bean id="u2" class="com.jjkj.spring.bean.domain.User">
+		<property name="id" value="2"/>
+		<property name="username" value="user_name_2"/>
+		<property name="note" value="user_note_2"/>
+	</bean>
+	
+	<util:list id="list">
+		<ref bean="r1"/>
+		<ref bean="r2"/>
+	</util:list>
+	
+	<util:set id="set">
+		<ref bean="r1"/>
+		<ref bean="r2"/>
+	</util:set>
+	
+	<util:map id="map">
+		<entry key-ref="r1" value-ref="u1"/>
+		<entry key-ref="r2" value-ref="u2"/>
+	</util:map>
+	
+	<bean id="userRoleAssembly" class="com.jjkj.spring.bean.domain.UserRoleAssembly" p:id="1" p:list-ref="list" p:map-ref="map" p:set-ref="set"/>
+	
+</beans>

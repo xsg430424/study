@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jjkj.dao.MovieDao">
+    
+	<sql id="testMovieColumns">
+		a.mid AS "mid",
+		a.mname AS "mname",
+		a.player AS "player",
+		a.type AS "type",
+		a.plot AS "plot",
+		a.release_year AS "release_year",
+		a.update_time AS "update_time",
+		a.region AS "region"		
+	</sql>
+	
+	<sql id="testMovieJoins">
+	</sql>
+    
+	<select id="findList" resultType="com.jjkj.entity.Movie">
+		select 
+		<include refid="testMovieColumns"/>
+		from movie_info a;
+	</select>
+	<!-- 
+	<select id="searchMovieByWeek">
+		select a.mid,b.uid,a.mname,COUNT(b.uid) AS hot from movie_info a join movie_hot b on a.mid=b.mid group by a.mid order by hot DESC LIMIT 0,10 ;
+	</select>
+	 -->
+	<insert id="save" parameterType="com.jjkj.entity.Movie">
+		insert into movie_info 
+		(mid,mname,player,type,plot,release_year,update_time,region)
+		values (#{mid},#{mname},#{player},#{type},#{plot},#{release_year},#{update_time},#{region})
+	</insert>
+	 
+	<update id="update" parameterType="com.jjkj.entity.Movie">
+		update movie_info set mname=#{mname},player=#{player},type=#{type},plot=#{plot},release_year=#{release_year},region=#{region},
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		delete from movie_info where mid=#{mid} 
+	</delete>
+	
+</mapper>
