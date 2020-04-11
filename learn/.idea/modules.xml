@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin/admin-server/admin-server.iml" filepath="$PROJECT_DIR$/admin/admin-server/admin-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config/config-server (2).iml" filepath="$PROJECT_DIR$/config/config-server (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka/eureka-server.iml" filepath="$PROJECT_DIR$/eureka/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-core/spring-boot-core.iml" filepath="$PROJECT_DIR$/spring-boot-core/spring-boot-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-demo/spring-boot-demo.iml" filepath="$PROJECT_DIR$/spring-boot-demo/spring-boot-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-email/spring-boot-email.iml" filepath="$PROJECT_DIR$/spring-boot-email/spring-boot-email.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-security/spring-boot-security.iml" filepath="$PROJECT_DIR$/spring-boot-security/spring-boot-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study.iml" filepath="$PROJECT_DIR$/study.iml" />
+    </modules>
+  </component>
+</project>

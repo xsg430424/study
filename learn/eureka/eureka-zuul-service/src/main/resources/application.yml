@@ -1,0 +1,21 @@
+server:
+    port: 5000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: eureka-zuul-service
+zuul:
+  routes:
+    hiapi:
+      path: /hiapi/*
+      serviceId: eureka-client
+    ribbonapi:
+      path: /ribbonapi/*
+      serviceId: eureka-ribbon-client
+    feignapi:
+      path: /feignapi/*
+      serviceId: eureka-feign
+  prefix: /v1

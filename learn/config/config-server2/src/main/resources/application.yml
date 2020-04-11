@@ -1,0 +1,23 @@
+server:
+    port: 8768
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: config-server
+#  profiles:
+#    active: native
+  cloud:
+    config:
+      server:
+        git:
+          uri:  https://gitee.com/xsg430424/forezp
+          search-paths: respo
+          username: xsg430424
+          password: xsg123456@
+      label: master
+#        native:
+#          search-locations: classpath:/shared
+

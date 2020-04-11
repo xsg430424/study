@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-client (1)" />
+        <module name="config-server (1)" />
+        <module name="eureka-client (1)" />
+        <module name="eureka-client2 (1)" />
+        <module name="eureka-server (1)" />
+        <module name="spring-boot-core" />
+        <module name="spring-boot-demo" />
+        <module name="spring-boot-email" />
+        <module name="spring-boot-security" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="1.8" />
+      <module name="auth" target="1.8" />
+      <module name="auth-service" target="1.5" />
+      <module name="config" target="1.8" />
+      <module name="config-client" target="1.8" />
+      <module name="config-client (1)" target="1.8" />
+      <module name="config-client2" target="1.8" />
+      <module name="config-server" target="1.8" />
+      <module name="config-server (1)" target="1.8" />
+      <module name="config-server (2)" target="1.8" />
+      <module name="config-server2" target="1.8" />
+      <module name="eureka" target="1.8" />
+      <module name="eureka-client" target="1.8" />
+      <module name="eureka-client (1)" target="1.8" />
+      <module name="eureka-client2" target="1.8" />
+      <module name="eureka-client2 (1)" target="1.8" />
+      <module name="eureka-feign" target="1.8" />
+      <module name="eureka-monitor-client" target="1.8" />
+      <module name="eureka-ribbon-client" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="eureka-server (1)" target="1.8" />
+      <module name="eureka-server2" target="1.8" />
+      <module name="eureka-zuul-service" target="1.8" />
+      <module name="mybatis-generator" target="1.8" />
+      <module name="spring-boot-core" target="1.8" />
+      <module name="spring-boot-demo" target="1.8" />
+      <module name="spring-boot-email" target="1.8" />
+      <module name="spring-boot-security" target="1.8" />
+      <module name="study" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
