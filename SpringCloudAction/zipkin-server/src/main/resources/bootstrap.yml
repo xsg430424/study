@@ -1,0 +1,13 @@
+server:
+  port: 9411
+spring:
+  application:
+    name: zipkin-server
+  profiles:
+    active: pro
+  cloud:
+    config:
+      uri: http://localhost:8769
+      fail-fast: true
+
+
