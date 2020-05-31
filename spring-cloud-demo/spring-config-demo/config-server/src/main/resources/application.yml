@@ -1,0 +1,33 @@
+#spring:
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: classpath:/shared
+#  profiles:
+#     active: native
+#  application:
+#    name: config-server
+
+server:
+  port: 8769
+
+
+# remote git
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/xsg430424/study
+          searchPaths: config
+          username: xsg430424
+          password: xsg123456@
+      label: master
+  application:
+    name: config-server
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
